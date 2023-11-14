@@ -81,7 +81,10 @@ var outcome = MessageBox.Show($"This is a message.", "Custom Title", MessageBoxB
 if (outcome.Result == MessageBoxResult.Yes);
 ```
 
-![Default Message](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/master/Screenshots/DefaultMessageBox.png)
+![Default Message](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/DefaultMessageBox.png)
+
+![/Custom Color Message](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/CustomColorMessageBox.png)
+
 
 > Using a message box with checkbox
 
@@ -90,7 +93,7 @@ var result = MessageBox.Show($"This is a simple message.", "Custom Title", Messa
 if (result.Checkbox == MessageBoxCheckbox.Checked);
 ```
 
-![Message box with checkbox](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/master/Screenshots/CheckboxMessageBox.png)
+![Message box with checkbox](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/CheckboxMessageBox.png)
 
 > Using a message with custom buttons (1-3 custom bottons)
 
@@ -101,7 +104,7 @@ var outcome = MessageBox.Show("This is a message.", "Title", button1: "Help", bu
 if (outcome.Result == MessageBoxResult.Button1);
 ```
 
-![Message box with custom buttons](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/master/Screenshots/CustomButtonsMessageBox.png)
+![Message box with custom buttons](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/CustomButtonsMessageBox.png)
 
 > Using a text input box
 
@@ -109,7 +112,7 @@ if (outcome.Result == MessageBoxResult.Button1);
 string result = InputBox.Show("Please enter your name:", color: Color.FromRgb(200, 150, 150));
 ```
 
-![Text input box](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/master/Screenshots/TextInputBox.png)
+![Text input box](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/TextInputBox.png)
 
 > Using combobox input box
 
@@ -117,7 +120,7 @@ string result = InputBox.Show("Please enter your name:", color: Color.FromRgb(20
 string result = InputBox.Show("Please choose item:", new string[] { "Item1", "Item2", "Item3" });
 ```
 
-![Combobox input box](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/master/Screenshots/ComboboxInputBox.png)
+![Combobox input box](https://raw.githubusercontent.com/Coltherion/MaterialDesignBoxes/main/Screenshots/ComboboxInputBox.png)
 
 ## :sparkle: Toolkits used
 
