@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MaterialDesignBoxes</id>
+    <version>1.0.2</version>
+    <authors>Jaroslav Vatral</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/Coltherion/MaterialDesignBoxes</projectUrl>
+    <description>Material Message Box and Input Box for WPF.</description>
+    <tags>Message Box, Input Box Material Design, Pop-up, WPF</tags>
+    <repository type="git" url="https://github.com/Coltherion/MaterialDesignBoxes.git" />
+    <dependencies>
+      <group targetFramework=".NETFramework4.7.2">
+        <dependency id="MaterialDesignColors" version="2.1.2" exclude="Build,Analyzers" />
+        <dependency id="MaterialDesignThemes" version="4.8.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.77" exclude="Build,Analyzers" />
+      </group>
+      <group targetFramework=".NETFramework4.8">
+        <dependency id="MaterialDesignColors" version="2.1.2" exclude="Build,Analyzers" />
+        <dependency id="MaterialDesignThemes" version="4.8.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Xaml.Behaviors.Wpf" version="1.1.77" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\vatraj\Work\VS Projects\MaterialDesignBoxes\MaterialDesignBoxes\bin\Release\net472\MaterialDesignBoxes.dll" target="lib\net472\MaterialDesignBoxes.dll" />
+    <file src="C:\Users\vatraj\Work\VS Projects\MaterialDesignBoxes\MaterialDesignBoxes\bin\Release\net48\MaterialDesignBoxes.dll" target="lib\net48\MaterialDesignBoxes.dll" />
+    <file src="C:\Users\vatraj\Work\VS Projects\MaterialDesignBoxes\README.md" target="\README.md" />
+  </files>
+</package>

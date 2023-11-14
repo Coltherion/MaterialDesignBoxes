@@ -1,0 +1,11 @@
+is_global = true
+build_property.TargetFramework = net48
+build_property.TargetPlatformMinVersion = 7.0
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = {0ED6E862-BD5D-4FBB-A421-70DCE06D8859};{7332AA71-55DD-49B5-980A-73AE5A941ADF}
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = MaterialDesignBoxes_pbdp35jz_wpftmp
+build_property.ProjectDir = C:\Users\vatraj\Work\VS Projects\MaterialDesignBoxes\MaterialDesignBoxes\

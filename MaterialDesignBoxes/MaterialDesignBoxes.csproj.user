@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Page Update="Dictionaries\CustomButtons.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dictionaries\MaterialDesignThemes.Overrides.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\InputBoxWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Windows\MessageBoxWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,89 @@
+﻿<Window
+    x:Class="MaterialMessageBoxDemo.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Width="525"
+    Height="500"
+    mc:Ignorable="d"
+    Background="{DynamicResource MaterialDesignPaper}"
+    BorderBrush="{DynamicResource SecondaryHueDarkBrush}"
+    Title="Material Design Message Box"
+    WindowState="Normal">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            Margin="0,12"
+            HorizontalAlignment="Center"
+            FontSize="20px">            Material Design Message Box Demo
+        </TextBlock>
+        <Rectangle
+            Grid.Row="1"
+            Height="1"
+            Fill="AliceBlue" />
+        <Button
+            Grid.Row="2"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowSimpleMessageBox_OnClick"
+            Content="Simple Message Box"
+            Style = "{DynamicResource MaterialDesignPaperButton}" />
+        <Button
+            Grid.Row="3"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowSimpleRTLMessageBox_OnClick"
+            Content="Simple RTL Message Box"
+            Foreground="{DynamicResource MaterialDesignPaper}" />
+        <Button
+            Grid.Row="4"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowWarningMessageBox_OnClick"
+            Content="Warning Message Box"
+            Foreground="{DynamicResource MaterialDesignPaper}" />
+        <Button
+            Grid.Row="5"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowErrorMessageBox_OnClick"
+            Content="Error Message Box"
+            Foreground="{DynamicResource MaterialDesignPaper}" />
+        <Button
+            Grid.Row="6"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowMessageBoxWithCancelButton_OnClick"
+            Content="Message Box with Cancel Button"
+            Foreground="{DynamicResource MaterialDesignPaper}" />
+        <Button
+            Grid.Row="7"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Click="ShowCustomMessageBox_OnClick"
+            Content="Custom Styled Message Box"
+            Foreground="{DynamicResource MaterialDesignPaper}" />
+        <TextBlock
+            Grid.Row="8"
+            Margin="12"
+            HorizontalAlignment="Center"
+            Name="TxtResult" />
+        <ComboBox
+            Grid.Row="9" Width="100">
+            
+        </ComboBox>
+    </Grid>
+</Window>

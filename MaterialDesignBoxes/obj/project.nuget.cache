@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Jwzpi/9tILJ7bERTzDEeuYd4ZOhHVg95RsjZSLDNiIDZp8W/f1cSa/SjorG87cI6Mz7S+OwXP85Ees0dH0z6Pg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\MaterialDesignBoxes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\vatraj\\.nuget\\packages\\materialdesigncolors\\2.1.2\\materialdesigncolors.2.1.2.nupkg.sha512",
+    "C:\\Users\\vatraj\\.nuget\\packages\\materialdesignthemes\\4.8.0\\materialdesignthemes.4.8.0.nupkg.sha512",
+    "C:\\Users\\vatraj\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.77\\microsoft.xaml.behaviors.wpf.1.1.77.nupkg.sha512"
+  ],
+  "logs": []
+}

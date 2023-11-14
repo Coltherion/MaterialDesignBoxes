@@ -1,0 +1,317 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:local="clr-namespace:MaterialDesignBoxes"
+    xmlns:wpf="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf">
+    <!--Normal Button-->
+    <local:LuminanceConverter x:Key="LuminanceConverter"/>
+    <Style
+        x:Key="MaterialDesignPaperButton"
+        BasedOn="{StaticResource MaterialDesignPaperButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="28" />
+        <Setter Property="MinWidth" Value="95" />
+        <Setter Property="MaxWidth" Value="117.5" />
+        <Setter Property="Padding" Value="2,0,2,1" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource Self}, Path=Background, Converter={StaticResource LuminanceConverter}}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <Grid>
+                        <AdornerDecorator CacheMode="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:ShadowAssist.CacheMode)}">
+                            <Grid>
+                                <Border
+                                    x:Name="background"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="{Binding Path=(wpf:ButtonAssist.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}"
+                                    Effect="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:ShadowAssist.ShadowDepth), Converter={x:Static converters:ShadowConverter.Instance}}" />
+                            </Grid>
+                        </AdornerDecorator>
+                        <wpf:Ripple
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <wpf:Ripple.Clip>
+                                <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                                    <Binding ElementName="border" Path="ActualWidth" />
+                                    <Binding ElementName="border" Path="ActualHeight" />
+                                    <Binding ElementName="border" Path="CornerRadius" />
+                                    <Binding ElementName="border" Path="BorderThickness" />
+                                </MultiBinding>
+                            </wpf:Ripple.Clip>
+                        </wpf:Ripple>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="background" Property="wpf:ShadowAssist.Darken" Value="True" />
+                            <Setter TargetName="background" Property="Background" Value="{Binding Background,
+                                                                                        RelativeSource={RelativeSource Mode=TemplatedParent},
+                                                                                        Converter={StaticResource BrushOpacityConverter},
+                                                                                        ConverterParameter=0.75}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--Icon Button-->
+    <Style
+        x:Key="MaterialDesignIconButton"
+        BasedOn="{StaticResource MaterialDesignIconButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="wpf:PackIcon">
+                            <Setter Property="Width" Value="23" />
+                            <Setter Property="Height" Value="23" />
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Rectangle
+                            x:Name="overlay"
+                            Fill="{TemplateBinding Foreground}"
+                            Opacity=".1"
+                            RadiusX="5"
+                            RadiusY="5"
+                            Visibility="Hidden" />
+                        <wpf:Ripple
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Clip="{Binding ElementName=GeometryEllipse, Path=RenderedGeometry}"
+                            ClipToBounds="True"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Rectangle
+                            x:Name="GeometryRectangle"
+                            Fill="Transparent"
+                            Focusable="False"
+                            IsHitTestVisible="False" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="overlay" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style
+        x:Key="ClearButton"
+        BasedOn="{StaticResource MaterialDesignIconButton}"
+        TargetType="{x:Type Button}">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="25" />
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Visibility" Value="Hidden" />
+        <Setter Property="Content" Value="{wpf:PackIcon Kind=WindowClose, Size=22}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryHueDarkBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ButtonBase}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="wpf:PackIcon">
+                            <Setter Property="Width" Value="23" />
+                            <Setter Property="Height" Value="23" />
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <Grid>
+                        <Rectangle
+                            x:Name="overlay"
+                            Fill="{TemplateBinding Foreground}"
+                            Opacity=".1"
+                            RadiusX="5"
+                            RadiusY="5"
+                            Visibility="Hidden" />
+                        <wpf:Ripple
+                            HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Clip="{Binding ElementName=GeometryEllipse, Path=RenderedGeometry}"
+                            ClipToBounds="True"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            Focusable="False"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        <Rectangle
+                            x:Name="GeometryRectangle"
+                            Fill="Transparent"
+                            Focusable="False"
+                            IsHitTestVisible="False" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <DataTrigger Value="True" Binding="{Binding IsFocused, ElementName=InputBoxField}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                        <DataTrigger Value="True" Binding="{Binding IsFocused, ElementName=ButtonClear}">
+                            <Setter Property="Visibility" Value="Visible" />
+                        </DataTrigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="overlay" Property="Visibility" Value="Visible" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value="0.23" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Arrow" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--Checkbox-->
+    <Style
+        x:Key="MaterialDesignCheckBox"
+        BasedOn="{StaticResource MaterialDesignCheckBox}"
+        TargetType="{x:Type CheckBox}">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
+        <Setter Property="Foreground" Value="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}, Path=(TextElement.Foreground)}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource MaterialDesignValidationErrorTemplate}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type CheckBox}">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Click">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InteractionEllipse" Storyboard.TargetProperty="(FrameworkElement.Width)">
+                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                <EasingDoubleKeyFrame Value="48" KeyTime="0:0:0.3" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InteractionEllipse" Storyboard.TargetProperty="(FrameworkElement.Height)">
+                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                <EasingDoubleKeyFrame Value="48" KeyTime="0:0:0.3" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InteractionEllipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                <EasingDoubleKeyFrame Value="-24" KeyTime="0:0:0.3" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InteractionEllipse" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)">
+                                <EasingDoubleKeyFrame Value="0" KeyTime="0" />
+                                <EasingDoubleKeyFrame Value="-24" KeyTime="0:0:0.3" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="InteractionEllipse" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                <EasingDoubleKeyFrame Value="0.3" KeyTime="0" />
+                                <EasingDoubleKeyFrame Value="0" KeyTime="0:0:0.3" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Grid
+                        x:Name="templateRoot"
+                        Background="Transparent"
+                        SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox
+                            Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:CheckBoxAssist.CheckBoxSize)}"
+                            Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(wpf:CheckBoxAssist.CheckBoxSize)}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            FlowDirection="LeftToRight">
+                            <Canvas Width="24" Height="24">
+                                <!--M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z-->
+                                <Path
+                                    x:Name="Graphic"
+                                    Data="M22.2.5H5.4C4.068.5 3 1.568 3 2.9V19.7A2.4 2.4 90 005.4 22.1H22.2A2.4 2.4 90 0024.6 19.7V2.9C24.6 1.568 23.52.5 22.2.5M22.2 2.9V19.7H5.4V2.9H22.2Z"
+                                    Fill="{DynamicResource PrimaryHueDarkBrush}" />
+                                <Ellipse
+                                    x:Name="InteractionEllipse"
+                                    Canvas.Left="12"
+                                    Canvas.Top="12"
+                                    Width="0"
+                                    Height="0"
+                                    Fill="{TemplateBinding Foreground}"
+                                    IsHitTestVisible="False"
+                                    Opacity="0"
+                                    RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform />
+                                            <SkewTransform />
+                                            <RotateTransform />
+                                            <TranslateTransform />
+                                        </TransformGroup>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                            </Canvas>
+                        </Viewbox>
+                        <ContentPresenter
+                            x:Name="contentPresenter"
+                            Grid.Column="1"
+                            Margin="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Focusable="False"
+                            RecognizesAccessKey="True"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Value="true" Binding="{Binding RelativeSource={RelativeSource Self}, Path=IsPressed}" />
+                                <Condition Value="false" Binding="{Binding RelativeSource={RelativeSource Self}, Path=(wpf:RippleAssist.IsDisabled)}" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Click}" />
+                            </MultiDataTrigger.EnterActions>
+                        </MultiDataTrigger>
+                        <Trigger Property="HasContent" Value="true">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource OptionMarkFocusVisual}" />
+                            <Setter Property="Padding" Value="4,0,0,3" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true" />
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="Graphic" Property="Data" Value="M11.4 17.3 5.4 11.3 7.092 9.596 11.4 13.904 20.508 4.796 22.2 6.5M22.2.5H5.4C4.068.5 3 1.568 3 2.9V19.7A2.4 2.4 90 005.4 22.1H22.2A2.4 2.4 90 0024.6 19.7V2.9C24.6 1.568 23.52.5 22.2.5Z" />
+                            <Setter TargetName="Graphic" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Graphic" Property="Fill" Value="{DynamicResource MaterialDesignCheckBoxDisabled}" />
+                            <Setter Property="Opacity" Value="0.56" />
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="Graphic" Property="Data" Value="M6.6 12.5 6.6 10.1 21 10.1 21 12.5M22.2.5H5.4C4.068.5 3 1.568 3 2.9V19.7A2.4 2.4 90 005.4 22.1H22.2A2.4 2.4 90 0024.6 19.7V2.9C24.6 1.568 23.52.5 22.2.5Z" />
+                            <Setter TargetName="Graphic" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+                        </Trigger>
+                        <Trigger Property="Validation.HasError" Value="true">
+                            <Setter TargetName="Graphic" Property="Fill" Value="{DynamicResource MaterialDesignValidationErrorBrush}" />
+                            <Setter TargetName="contentPresenter" Property="Control.Foreground" Value="{DynamicResource MaterialDesignValidationErrorBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Graphic" Property="Opacity" Value="0.75" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

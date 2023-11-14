@@ -1,0 +1,85 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\MaterialDesignBoxes.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\MaterialDesignBoxes.csproj": {
+      "version": "1.0.2",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\MaterialDesignBoxes.csproj",
+        "projectName": "MaterialDesignBoxes",
+        "projectPath": "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\MaterialDesignBoxes.csproj",
+        "packagesPath": "C:\\Users\\vatraj\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\vatraj\\Work\\VS Projects\\MaterialDesignBoxes\\MaterialDesignBoxes\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\vatraj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472",
+          "net48"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "targetAlias": "net472",
+            "projectReferences": {}
+          },
+          "net48": {
+            "targetAlias": "net48",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "targetAlias": "net472",
+          "dependencies": {
+            "MaterialDesignColors": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+        },
+        "net48": {
+          "targetAlias": "net48",
+          "dependencies": {
+            "MaterialDesignColors": {
+              "target": "Package",
+              "version": "[2.1.2, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.*, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.307\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
